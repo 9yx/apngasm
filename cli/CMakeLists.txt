@@ -51,7 +51,7 @@ set_target_properties(apngasm-cli
 
 # Link to built apngasm library
 target_link_libraries(apngasm-cli
-  apngasm
+  apngasm-dynamic
   ${Boost_LIBRARIES}
 )
 
