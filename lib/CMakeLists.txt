@@ -89,12 +89,12 @@ if (POLICY CMP0167)
   cmake_policy(SET CMP0167 OLD)
 endif ()
 
-set(Boost_COMPONENTS program_options regex system)
+set(Boost_COMPONENTS program_options regex)
 set(Boost_NO_BOOST_CMAKE ON)
 find_package(Boost QUIET COMPONENTS ${Boost_COMPONENTS})
 
 if (Boost_FOUND)
-  set(APNGASM_BOOST_LIBS Boost::program_options Boost::regex Boost::system)
+  set(APNGASM_BOOST_LIBS Boost::program_options Boost::regex)
 else ()
   find_package(Boost CONFIG QUIET)
   if (Boost_FOUND AND TARGET Boost::headers)
@@ -115,7 +115,7 @@ else ()
 endif ()
 
 if (NOT Boost_FOUND)
-  message(FATAL_ERROR "Boost not found. Install Boost (including program_options, regex, system) or set BOOST_ROOT.")
+  message(FATAL_ERROR "Boost not found. Install Boost (including program_options, regex) or set BOOST_ROOT.")
 endif ()
 
 include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
